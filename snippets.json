@@ -79,7 +79,7 @@
 	"React Functional Component without props": {
 		"prefix": "fcompnoprops",
 		"body": [
-			"import React from 'react';",
+			"import React, { FC } from 'react';",
 			"",
 			"const ${1:}: FC = () => {",
 			"  return <>${3}</>;",
