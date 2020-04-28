@@ -4,14 +4,14 @@
 		"body": [
 			"import React, { Component } from 'react';",
 			"",
-			"export interface I${1:App}Props {",
+			"export interface ${1:App}Props {",
 			"}",
 			"",
-			"export interface I${1:App}State {",
+			"export interface ${1:App}State {",
 			"}",
 			"",
-			"export default class ${1:} extends Component<I${1:}Props, I${1:}State> {",
-			"  constructor(props: I${1:}Props) {",
+			"export default class ${1:} extends Component<${1:}Props, ${1:}State> {",
+			"  constructor(props: ${1:}Props) {",
 			"    super(props);",
 			"",
 			"    this.state = {",
@@ -20,9 +20,9 @@
 			"",
 			"  render() {",
 			"    return (",
-			"      <div>",
+			"      <>",
 			"        ${2:}",
-			"      </div>",
+			"      </>",
 			"    );",
 			"  }",
 			"}",
@@ -33,14 +33,14 @@
 	"React Component - Class without imports": {
 		"prefix": "ccompnoimports",
 		"body": [
-			"export interface I${1:App}Props {",
+			"export interface ${1:App}Props {",
 			"}",
 			"",
-			"export interface I${1:App}State {",
+			"export interface ${1:App}State {",
 			"}",
 			"",
-			"export default class ${1:} extends Component<I${1:}Props, I${1:}State> {",
-			"  constructor(props: I${1:}Props) {",
+			"export default class ${1:} extends Component<${1:}Props, ${1:}State> {",
+			"  constructor(props: ${1:}Props) {",
 			"    super(props);",
 			"",
 			"    this.state = {",
@@ -49,9 +49,9 @@
 			"",
 			"  render() {",
 			"    return (",
-			"      <div>",
+			"      <>",
 			"        ${2:}",
-			"      </div>",
+			"      </>",
 			"    );",
 			"  }",
 			"}",
@@ -59,16 +59,16 @@
 		],
 		"description": "Create a stateful React Component with typescript with Props, State, and a constructor (without imports)."
 	},
-	"React Functional Component with imports": {
+	"React Functional Component with imports and props": {
 		"prefix": "fcomp",
 		"body": [
 			"import React, { FC } from 'react';",
 			"",
-			"interface I${1:App}Props {$2",
+			"interface ${1:App}Props {$2",
 			"}",
 			"",
-			"const ${1:}: FC<I${1:}Props> = (props) => {",
-			"  return $0;",
+			"const ${1:}: FC<${1:}Props> = (props) => {",
+			"  return <>${3}</>;",
 			"};",
 			"",
 			"export default ${1:};",
@@ -76,20 +76,103 @@
 		],
 		"description": "Create a React Stateless Functional Component."
 	},
+	"React Functional Component without props": {
+		"prefix": "fcompnoprops",
+		"body": [
+			"import React from 'react';",
+			"",
+			"const ${1:}: FC = () => {",
+			"  return <>${3}</>;",
+			"};",
+			"",
+			"export default ${1:};",
+			""
+		],
+		"description": "Create a React Stateless Functional Component without props and their types."
+	},
 	"React Functional Component without imports": {
 		"prefix": "fcompnoimports",
 		"body": [
-			"interface I${1:App}Props {$2",
+			"interface ${1:App}Props {$2",
 			"}",
 			"",
-			"const ${1:}: FC<I${1:}Props> = (props) => {",
-			"  return $0;",
+			"const ${1:}: FC<${1:}Props> = (props) => {",
+			"  return <>${3}</>;",
 			"};",
 			"",
 			"export default ${1:};",
 			""
 		],
 		"description": "Create a React Stateless Functional Component (without imports)."
+	},
+	"useEffect": {
+		"prefix": "uEffect",
+		"body": [
+			"useEffect(",
+			"  () => {",
+			"    ${1}",
+			"  },",
+			"  [${2}]",
+			");",
+			""
+		],
+		"description": "Create useEffect hook."
+	},
+	"useState": {
+		"prefix": "uState",
+		"body": [
+			"const [${1:yourVar}, set${1/(.*)/${1:/capitalize}/}] = useState(${2});",
+			""
+		],
+		"description": "Create useState hook (to apply capitalization in setter, you must hit TAB)"
+	},
+	"useCallback": {
+		"prefix": "uCallback",
+		"body": [
+			"const ${1:method} = useCallback(",
+			"  () => {",
+			"    ${2}",
+			"  },",
+			"  [${3}]",
+			");",
+			""
+		],
+		"description": "Create method with useCallback hook."
+	},
+	"useMemo": {
+		"prefix": "uMemo",
+		"body": [
+			"const ${1:yourVar} = useMemo(",
+			"  () => {",
+			"    ${2}",
+			"    return ${3};",
+			"  },",
+			"  [${4}]",
+			");",
+			""
+		],
+		"description": "Create var with useMemo hook."
+	},
+	"useDispatch": {
+		"prefix": "uDispatch",
+		"body": [
+			"const dispatch = useDispatch();"
+		],
+		"description": "Create dispatch var with useDispatch hook."
+	},
+	"useSelector": {
+		"prefix": "uSelector",
+		"body": [
+			"const ${1:yourVar} = useSelector(${2:selector});"
+		],
+		"description": "Create var with useSelector hook."
+	},
+	"useSelectorWithShallowEqual": {
+		"prefix": "uSelectorShallowEq",
+		"body": [
+			"const ${1:yourVar} = useSelector(${2:selector}, shallowEqual);"
+		],
+		"description": "Create var with useSelector hook and use shallowEqual."
 	},
 	"constructor": {
 		"prefix": "conc",
@@ -204,10 +287,10 @@
 			"import React, { Component } from 'react';",
 			"import { connect } from 'react-redux'",
 			"",
-			"export interface I${1:App}Props {",
+			"export interface ${1:App}Props {",
 			"}",
 			"",
-			"class ${1:} extends Component<I${1:}Props> {",
+			"class ${1:} extends Component<${1:}Props> {",
 			"  public render() {",
 			"    return (",
 			"      <div>",
@@ -280,5 +363,12 @@
 			"});",
 		],
 		"description": "Create describe it block"
+	},
+	"console.log": {
+		"prefix": "cl",
+		"body": [
+			"console.log(${1});"
+		],
+		"description": "Console.log"
 	}
 }
