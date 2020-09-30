@@ -335,5 +335,15 @@
       "",
       "export default useStyles"
     ]
+  },
+  "Create cosmos fixture": {
+    "prefix": "cosmos-fixture",
+    "body": [
+      "import React, { FC } from 'react';",
+      "",
+      "export default <${1:} />",
+      ""
+    ],
+    "description": "Create cosmos fixture."
   }
 }
