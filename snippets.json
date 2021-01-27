@@ -340,5 +340,10 @@
     "prefix": "cosmos-fixture",
     "body": ["import React from 'react';", "", "export default <${1:} />", ""],
     "description": "Create cosmos fixture."
+  },
+  "Console log parsed stringified JSON": {
+    "prefix": "cljson",
+    "body": ["console.log(JSON.parse(JSON.stringify(${1:})));"],
+    "description": "Parse stringified JSON"
   }
 }
